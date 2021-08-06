@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1, 0, 0);
+            other.gameObject.GetComponent<EnemyController>().PlayHurtEffect();
             Destroy(gameObject);
         }
         else

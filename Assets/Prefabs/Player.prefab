@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539859945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0, z: 0.46}
+  m_LocalPosition: {x: -0.05, y: 0, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2461503946171276530}
@@ -173,7 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fa925bca60ec345988759dca284daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
+  jumpHeight: 30
+  gravity: 9.8
   projectilePrefab: {fileID: 2075193513348723222, guid: e93ea34086061c44cad3912132a74668, type: 3}
   spawnPoint: {fileID: 539859946}
   raycastPoint: {fileID: 588586415}
