@@ -29,4 +29,18 @@ public class Projectile : MonoBehaviour
         }
         
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1, 0, 0);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }

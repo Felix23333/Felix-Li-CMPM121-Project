@@ -42,8 +42,10 @@ public class PlayerController : MonoBehaviour
         ray = new Ray(raycastPoint.transform.position, Vector3.forward);
         if(Physics.Raycast(ray, out RaycastHit hit))
         {
-            Debug.Log("Hit something!");
-            hit.collider.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1, 0, 0);
+            if(hit.collider.gameObject.tag == "Enemy")
+            {
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material.color = new Color(1, 0, 0);
+            }
         }
     }
 }
