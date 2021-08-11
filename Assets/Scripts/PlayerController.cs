@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 10;
     CharacterController controller;
     public float gravity = 9.8f;
+    Camera currentCamera;
     //projectile shoot vars
     public GameObject projectilePrefab;
     public Transform spawnPoint;
@@ -21,13 +22,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        currentCamera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
         //handle jump and move
-        Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 dir = currentCamera.transform.right * Input.GetAxis("Horizontal") + currentCamera.transform.forward * Input.GetAxis("Vertical");
 
         if(controller.isGrounded)
         {
