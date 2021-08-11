@@ -7,17 +7,22 @@ public class Projectile : MonoBehaviour
     Rigidbody rb;
     public float speed = 10f;
     public int destoryTime = 3;
+    Transform player;
+    Vector3 shootDir;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
         StartCoroutine(DestorySelf());
+        shootDir = player.transform.forward;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.AddForce(Vector3.forward * speed * Time.deltaTime);
+        rb.AddForce(shootDir * speed * Time.deltaTime, ForceMode.Impulse);
+        Debug.Log(shootDir);
     }
 
     IEnumerator DestorySelf()

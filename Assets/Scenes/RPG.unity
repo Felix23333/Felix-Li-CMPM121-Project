@@ -1462,7 +1462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1778769143}
   rotateSpeed: 1500
-  offset: {x: 0, y: 2, z: -5}
+  offset: {x: 0, y: 2.5, z: -4.5}
 --- !u!20 &1841635447
 Camera:
   m_ObjectHideFlags: 0
@@ -1693,6 +1693,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 539859946, guid: f1da2a64c457e8045a075bf4af26e7f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.795
+      objectReference: {fileID: 0}
     - target: {fileID: 2461503946171276530, guid: f1da2a64c457e8045a075bf4af26e7f5, type: 3}
       propertyPath: m_RootOrder
       value: 1

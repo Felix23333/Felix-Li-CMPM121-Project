@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     public float gravity = 9.8f;
     Camera currentCamera;
+    Vector3 cameraDir;
     //projectile shoot vars
     public GameObject projectilePrefab;
     public Transform spawnPoint;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         currentCamera = Camera.main;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -36,10 +38,16 @@ public class PlayerController : MonoBehaviour
             dirY = Input.GetAxis("Jump") * jumpHeight;
         }
 
-
+        //move & jump
         dirY -= gravity * Time.deltaTime;
         dir.y = dirY;
         controller.Move(dir * Time.deltaTime * speed);
+        //rotate
+        cameraDir = currentCamera.transform.forward;
+        cameraDir.y = 0;
+        transform.LookAt(transform.position + cameraDir);
+
+
         if(Input.GetMouseButtonDown(0))
         {
             Fire();
@@ -52,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     void Fire()
     {
+        spawnPoint.rotation = transform.rotation;
         Instantiate(projectilePrefab, spawnPoint);
     }
 
