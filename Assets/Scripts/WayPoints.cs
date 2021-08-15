@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//This script is edited from https://answers.unity.com/questions/894796/how-to-make-object-follow-path.html
 public class WayPoints : MonoBehaviour
 {
 
