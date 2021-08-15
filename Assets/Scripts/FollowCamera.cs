@@ -15,13 +15,13 @@ public class FollowCamera : MonoBehaviour
     void LateUpdate()
     {
         /*float mouseX = (Input.mousePosition.x / Screen.width) - 0.5f;
-        float mouseY = (Input.mousePosition.y / Screen.height) - 0.5f;*/
-        //-1f * (mouseY * 180f)
-        //transform.localRotation = Quaternion.Euler(new Vector4(30, mouseX * rotateSpeed, transform.localRotation.z));
+        float mouseY = (Input.mousePosition.y / Screen.height) - 0.5f;
+        
+        transform.localRotation = Quaternion.Euler(new Vector4(-1f * (mouseY * 180f), mouseX * rotateSpeed, transform.localRotation.z));*/
 
         offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime, Vector3.up) * offset;
         transform.position = Target.position + offset;
-        transform.LookAt(Target);
+        transform.LookAt(Target.position + new Vector3(0, 2.5f, 0));
     }
 }
 
