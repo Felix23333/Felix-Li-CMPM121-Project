@@ -29,4 +29,5 @@ public class Platform : MonoBehaviour
     {
         GetComponent<MeshRenderer>().material = lightMat;
     }
+
 }

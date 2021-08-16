@@ -20,6 +20,11 @@ public class ClockRotate : MonoBehaviour
         transform.Rotate(-speed * Time.deltaTime, 0f, 0f);
     }
 
+    public int GetCurrentPhase()
+    {
+        return currentPhase;
+    }
+
     void ChangePhase()
     {
         currentPhase++;
