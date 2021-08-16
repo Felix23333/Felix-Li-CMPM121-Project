@@ -17,7 +17,7 @@ public class ClockRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0f, 0f, speed * Time.deltaTime);
+        transform.Rotate(-speed * Time.deltaTime, 0f, 0f);
     }
 
     void ChangePhase()
