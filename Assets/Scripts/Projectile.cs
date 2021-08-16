@@ -43,6 +43,10 @@ public class Projectile : MonoBehaviour
             other.gameObject.GetComponent<EnemyController>().PlayHurtEffect();
             Destroy(gameObject);
         }
+        else if(other.gameObject.tag == "Ignore")
+        {
+            
+        }
         else
         {
             Destroy(gameObject);

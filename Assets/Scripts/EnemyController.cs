@@ -1,44 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
-    public float xMax;
-    public float xMin;
-    public float speed = 10;
-    bool trigger = false;
-    int count;
-    bool isLock = false;
+    NavMeshAgent agent;
+    public Transform target;
+    public bool isFollowing;
+    Vector3 initPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        initPos = transform.position;
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        count++;
-        if (count >= 50)
+        if(isFollowing)
         {
-            isLock = false;
+            agent.destination = target.transform.position;
         }
-        if (trigger)
+        else
         {
-            speed = -speed;
-            trigger = false;
+            agent.destination = initPos;
         }
-        transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
-        if (transform.position.x > xMax || transform.position.x < xMin)
-        {
-            if (!isLock)
-            {
-                trigger = true;
-                isLock = true;
-                count = 0;
-            }
-        }
+        
     }
 
     public void PlayHurtEffect()
