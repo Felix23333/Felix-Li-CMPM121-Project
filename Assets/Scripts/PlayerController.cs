@@ -17,11 +17,14 @@ public class PlayerController : MonoBehaviour
     public Transform raycastPoint;
     Ray ray;
 
+    Vector3 startPos;
+
     //temp var
     float dirY;
     // Start is called before the first frame update
     void Start()
     {
+        startPos = transform.position;
         controller = GetComponent<CharacterController>();
         currentCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
@@ -74,5 +77,12 @@ public class PlayerController : MonoBehaviour
                 hit.collider.gameObject.GetComponent<EnemyController>().PlayHurtEffect();
             }
         }
+    }
+
+    public void Respawn()
+    {
+        controller.enabled = false;
+        transform.position = startPos;
+        controller.enabled = true;
     }
 }

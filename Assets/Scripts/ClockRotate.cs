@@ -9,7 +9,7 @@ public class ClockRotate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPhase = 0;
+        currentPhase = -1;
         InvokeRepeating("ChangePhase", 0, 3);
     }
 
@@ -22,6 +22,19 @@ public class ClockRotate : MonoBehaviour
 
     void ChangePhase()
     {
+        currentPhase++;
         currentPhase = currentPhase % 3;
+        Platform[] platforms = FindObjectsOfType<Platform>();
+        foreach (Platform platform in platforms)
+        {
+            if(platform.targetPhase == currentPhase)
+            {
+                platform.SetLight();
+            }
+            else
+            {
+                platform.SetNormal();
+            }
+        }
     }
 }
