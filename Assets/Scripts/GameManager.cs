@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         {
             door1.SetActive(false);
         }
+        //TODO: Implement new score system
         //scoreText.text = "Score: " + score.ToString();
     }
 }
