@@ -484,6 +484,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1376767958}
     m_Modifications:
+    - target: {fileID: 2140926053530042741, guid: ff361befe9fe2d74f952e93755f7156f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.88
+      objectReference: {fileID: 0}
     - target: {fileID: 4537753145771726507, guid: ff361befe9fe2d74f952e93755f7156f, type: 3}
       propertyPath: m_Name
       value: Platform (8)
@@ -28669,6 +28673,24 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1234928368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4537753145771726507, guid: ff361befe9fe2d74f952e93755f7156f, type: 3}
+  m_PrefabInstance: {fileID: 12253309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1234928369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234928368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226d31a0949b89a4aac28b28e619cc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 602165207}
 --- !u!43 &1248093948
 Mesh:
   m_ObjectHideFlags: 0
