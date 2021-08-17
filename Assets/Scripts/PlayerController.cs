@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
     //projectile shoot vars
     public GameObject projectilePrefab;
     public Transform spawnPoint;
-    //raycast shoot vars
+    /*//raycast shoot vars
     public Transform raycastPoint;
-    Ray ray;
+    Ray ray;*/
 
     Vector3 startPos;
 
@@ -55,10 +55,10 @@ public class PlayerController : MonoBehaviour
         {
             Fire();
         }
-        else if (Input.GetMouseButtonDown(1))
+        /*else if (Input.GetMouseButtonDown(1))
         {
             Fire2();
-        }
+        }*/
     }
 
     void Fire()
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         Instantiate(projectilePrefab, spawnPoint);
     }
 
-    void Fire2()
+    /*void Fire2()
     {
         ray = new Ray(raycastPoint.transform.position, Vector3.forward);
         if(Physics.Raycast(ray, out RaycastHit hit))
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
                 hit.collider.gameObject.GetComponent<EnemyController>().PlayHurtEffect();
             }
         }
-    }
+    }*/
 
     public void Respawn()
     {
