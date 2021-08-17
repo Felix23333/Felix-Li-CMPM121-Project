@@ -8,6 +8,9 @@ public class EnemyController : MonoBehaviour
     public Transform target;
     public bool isFollowing;
     Vector3 initPos;
+    public int health;
+    /*public bool canShoot = false;
+    public float shootDistance;*/
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +21,20 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isFollowing)
+        if(health == 0)
         {
-            agent.destination = target.transform.position;
+            Destroy(gameObject);
         }
-        else
+        if(agent)
         {
-            agent.destination = initPos;
+            if (isFollowing)
+            {
+                agent.destination = target.transform.position;
+            }
+            else
+            {
+                agent.destination = initPos;
+            }
         }
         
     }
@@ -36,6 +46,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator HurtEffect()
     {
+        health--;
         GetComponent<MeshRenderer>().material.color = new Color(1, 0, 0);
         yield return new WaitForSeconds(0.5f);
         GetComponent<MeshRenderer>().material.color = new Color(1, 0.23f, 0.76f);

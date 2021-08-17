@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int score;
     public Text scoreText;
+    public GameObject door1;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + score.ToString();
+        if(FindObjectsOfType<EnemyController>().Length == 0)
+        {
+            door1.SetActive(false);
+        }
+        //scoreText.text = "Score: " + score.ToString();
     }
 }
