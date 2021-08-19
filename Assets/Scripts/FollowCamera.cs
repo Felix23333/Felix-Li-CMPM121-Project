@@ -6,6 +6,7 @@ public class FollowCamera : MonoBehaviour
     [SerializeField] Transform Target;
     public float rotateSpeed = 10;
     public Vector3 offset;
+    public Vector3 Offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class FollowCamera : MonoBehaviour
 
         offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime, Vector3.up) * offset;
         transform.position = Target.position + offset;
-        transform.LookAt(Target.position + new Vector3(0, 2.5f, 0));
+        transform.LookAt(Target.position + Offset);
     }
 }
 
