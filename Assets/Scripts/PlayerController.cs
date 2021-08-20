@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour
         {
             Fire2();
         }*/
-        Debug.LogError(dir.magnitude);
         if(dir.magnitude > 0.2)
         {
             anims.SetBool("isWalking", true);
