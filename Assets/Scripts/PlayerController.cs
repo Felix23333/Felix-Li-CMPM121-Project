@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Animations;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
@@ -18,12 +18,14 @@ public class PlayerController : MonoBehaviour
     Ray ray;*/
 
     Vector3 startPos;
+    Animator anims;
 
     //temp var
     float dirY;
     // Start is called before the first frame update
     void Start()
     {
+        anims = GetComponentInChildren<Animator>();
         startPos = transform.position;
         controller = GetComponent<CharacterController>();
         currentCamera = Camera.main;
@@ -59,6 +61,15 @@ public class PlayerController : MonoBehaviour
         {
             Fire2();
         }*/
+        Debug.LogError(dir.magnitude);
+        if(dir.magnitude > 0.2)
+        {
+            anims.SetBool("isWalking", true);
+        }
+        else
+        {
+            anims.SetBool("isWalking", false);
+        }
     }
 
     void Fire()
