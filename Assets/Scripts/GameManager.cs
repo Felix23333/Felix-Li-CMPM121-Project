@@ -9,12 +9,34 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public GameObject door1;
     public GameObject PauseMenu;
+    public GameObject MainMenuRoot;
+    public GameObject SettingRoot;
+    public Slider MusicSlider;
+    public Slider SFXSlider;
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
     // Start is called before the first frame update
     void Start()
     {
         if(PauseMenu)
         {
             PauseMenu.SetActive(false);
+        }
+        if(MusicSlider)
+        {
+            MusicSlider.value = GetMusicVolume();
+        }
+        if(SFXSlider)
+        {
+            SFXSlider.value = GetSFXVolume();
+        }
+        if(musicSource)
+        {
+            musicSource.volume = GetMusicVolume();
+        }
+        if(sfxSource)
+        {
+            sfxSource.volume = GetSFXVolume();
         }
         score = 0;
     }
@@ -64,4 +86,49 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Back()
+    {
+        if(SettingRoot)
+        {
+            SettingRoot.SetActive(false);
+        }
+        if(MainMenuRoot)
+        {
+            MainMenuRoot.SetActive(true);
+        }
+    }
+
+    public void GoSetting()
+    {
+        if (SettingRoot)
+        {
+            SettingRoot.SetActive(true);
+        }
+        if (MainMenuRoot)
+        {
+            MainMenuRoot.SetActive(false);
+        }
+    }
+
+    public void SetMusicVolume(float value)
+    {
+        //Debug.LogError(value);
+        PlayerPrefs.SetFloat("Music", value);
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        //Debug.LogError(value);
+        PlayerPrefs.SetFloat("SFX", value);
+    }
+
+    public float GetMusicVolume()
+    {
+        return PlayerPrefs.GetFloat("Music");
+    }
+
+    public float GetSFXVolume()
+    {
+        return PlayerPrefs.GetFloat("SFX");
+    }
 }
