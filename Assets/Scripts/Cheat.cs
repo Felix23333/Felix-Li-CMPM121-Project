@@ -8,12 +8,17 @@ public class Cheat : MonoBehaviour
     public GameObject door2;
     public GameObject door3;
     public Text scoreText;
+    public AudioSource doorSFX;
     
     public void OpenDoor()
     {
         door1.SetActive(false);
         door2.SetActive(false);
         door3.SetActive(false);
+        if(doorSFX)
+        {
+            doorSFX.Play();
+        }
     }
 
     public void CanICheat()

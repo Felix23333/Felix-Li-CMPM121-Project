@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Slider MusicSlider;
     public Slider SFXSlider;
     public AudioSource musicSource;
-    public AudioSource sfxSource;
+    public AudioSource[] sfxSources;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +32,17 @@ public class GameManager : MonoBehaviour
         }
         if(musicSource)
         {
-            musicSource.volume = GetMusicVolume();
+            musicSource.volume = GetMusicVolume() * 0.1f;
         }
-        if(sfxSource)
+        if(sfxSources.Length != 0)
         {
-            sfxSource.volume = GetSFXVolume();
+            foreach(var sfxSource in sfxSources)
+            {
+                sfxSource.volume = GetSFXVolume();
+            }
         }
         score = 0;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -48,6 +52,7 @@ public class GameManager : MonoBehaviour
         {
             if(door1)
             {
+                sfxSources[0].Play();
                 door1.SetActive(false);
             }        
         }

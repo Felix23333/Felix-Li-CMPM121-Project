@@ -1223,6 +1223,8 @@ MonoBehaviour:
   SettingRoot: {fileID: 1939788075}
   MusicSlider: {fileID: 571575860}
   SFXSlider: {fileID: 1823787931}
+  musicSource: {fileID: 0}
+  sfxSources: []
 --- !u!1 &677857445
 GameObject:
   m_ObjectHideFlags: 0
