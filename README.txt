@@ -1,37 +1,43 @@
 README
+1.Music
+Have at least one song that plays in the background of your game. This should start when the level begins, 
+and should not be affected by distance from the audio source.
+Status: Completed
+It will played when you start the level(hit start game in main menu)
 
-1.Create at least one shader graph and apply it to an object in the game.
-Status: Complete*
-When I change to URP, Many shader of  my project broken and not working, so I use unity shader lab to create a custom glass material.(Already aproved by Mirek)
+2.Sound Effect
+Have at least one sound effect that plays during your game. This should only play at specific moments, 
+and should be affected by distance from the audio source.
+Status: Completed
+I make three SFX, one is for walking, one is for door open, one for player hurt(respawn). It will play in specific moment,
+hurt and walking is attach to player, but door open is attached the door, so door open SFX will affect by distance between
+the camera and the door.
 
-2.Create at least one "local" particle effect.
-Status: Complete
-There is a "goal" paricle effect to show each room's destination. It follow a specific path!
+3.Main Menu
+Have the game start with a main menu with a button that the player can click to start the game.
+Status: Completed
+It have a Main menu, the game build start with the main menu.
 
-3.Create at least one "global" particle effect.
-Status: Complete
-There is a snow effect that follow the player
+4.Sound Settings
+Have 2 sliders on the main menu that the player can use to affect the volume of background music and sound effects individually. 
+These should save/load between playthroughs.
+Status: Completed
+It have SFX and Music slider when you click "settings" in the main menu, it will save the setting even you leave the game.
 
-4.Create at least one "local" post-processing effect
-Status: Complete
-There is a bloom effect in lamp and the clock room platform
+5.Pause Menu
+Have the ability to pause the game during gameplay and go back to the main menu.
+Status: Completed
+In the level scene, use "Escape" Key to open that
 
-5.Create at least one "global" post-processing effect
-Status: Complete
-The grain effect is global, works for all map.
+6.Build
+Create one build of the game for Windows.
+Status: Completed
+The Windows build is in the Project folder, "WindowsBuild" subfolder.
 
-6.Walking Animation
-Status: Complete
-Player have walking animation and can switch to idle animation.
-
-7.idle Animation
-Status: Complete
-Player have idle animation and can switch to Walking animation.
-
-8.Unique Addition (Extra Credit)
-Status: Complete
-Made a water material that can move during the game, and the new room logic is completed! It will change 3D to "2D" and play! "2D" Map will be harder in final version.
-(Trying to recreate 3D to 2D adventure in Mario Odessy)
+7.[Extra Credit] Final bonuses
+Make the game yours! Add new features, additional options settings, etc.
+Status: Completed
+Have more than one SFX, the main menu will change background pic, set some collectable to the level.
 
 
 

@@ -30,6 +30,7 @@ public class Collectable : MonoBehaviour
         {
             toDestory = true;
             gm.score += 1;
+            gm.scoreText.text = "Score: " + gm.score.ToString();
         }
     }
 }

@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
     public Slider SFXSlider;
     public AudioSource musicSource;
     public AudioSource[] sfxSources;
+    public AudioSource doorSFX;
+    bool door1Open;
     // Start is called before the first frame update
     void Start()
     {
+        door1Open = false;
         if(PauseMenu)
         {
             PauseMenu.SetActive(false);
@@ -39,6 +42,10 @@ public class GameManager : MonoBehaviour
             foreach(var sfxSource in sfxSources)
             {
                 sfxSource.volume = GetSFXVolume();
+                if (sfxSource.tag == "Walk")
+                {
+                    sfxSource.volume = GetSFXVolume() * 0.1f;
+                }
             }
         }
         score = 0;
@@ -52,8 +59,12 @@ public class GameManager : MonoBehaviour
         {
             if(door1)
             {
-                sfxSources[0].Play();
+                if(doorSFX && !door1Open)
+                {
+                    doorSFX.Play();
+                }
                 door1.SetActive(false);
+                door1Open = true;
             }        
         }
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -62,8 +73,7 @@ public class GameManager : MonoBehaviour
             PauseMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
-        //TODO: Implement new score system
-        //scoreText.text = "Score: " + score.ToString();
+        
     }
 
     public void StartGame()

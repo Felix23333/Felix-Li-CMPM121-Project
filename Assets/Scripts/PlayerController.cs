@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public float gravity = 9.8f;
     Camera currentCamera;
     Vector3 cameraDir;
+    bool isWalking;
+    public AudioSource walkSFX;
+    public AudioSource hurtSFX;
     //projectile shoot vars
     public GameObject projectilePrefab;
     public Transform spawnPoint;
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isWalking = false;
         anims = GetComponentInChildren<Animator>();
         startPos = transform.position;
         controller = GetComponent<CharacterController>();
@@ -63,10 +67,17 @@ public class PlayerController : MonoBehaviour
         }*/
         if(dir.magnitude > 0.2)
         {
+            if(!isWalking)
+            {
+                isWalking = true;
+                walkSFX.Play();
+            }
             anims.SetBool("isWalking", true);
         }
         else
         {
+            isWalking = false;
+            walkSFX.Stop();
             anims.SetBool("isWalking", false);
         }
     }
@@ -94,5 +105,6 @@ public class PlayerController : MonoBehaviour
         controller.enabled = false;
         transform.position = startPos;
         controller.enabled = true;
+        hurtSFX.Play();
     }
 }

@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddForce(shootDir * speed * Time.deltaTime, ForceMode.Impulse);
-        Debug.Log(shootDir);
+        //Debug.Log(shootDir);
     }
 
     IEnumerator DestorySelf()

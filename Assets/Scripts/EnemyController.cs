@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 public class EnemyController : MonoBehaviour
 {
     NavMeshAgent agent;
@@ -25,7 +26,7 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(agent)
+        else if (agent)
         {
             if (isFollowing)
             {
